@@ -25,6 +25,8 @@ p_round <- function(pvalues, type="2or3dp", na="", lessThanSpace=FALSE) {
                      "0.",
                      paste(rep(0, abs(lessThanPower) - 1L), collapse=""),
                      1)
+  # Define lessThan in this way instead of using 10^lessThanPower to avoid
+  # getting scientific notation
   if (type != "2or3dp") {
     p_rounded <-
       ifelse(is.na(pvalues), na,
